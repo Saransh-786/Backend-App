@@ -2,6 +2,7 @@ import mongoose,{Schema} from "mongoose";
 import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt"
 
+//  schema for youtube user
 const userSchema=new Schema({
     username:{
         type:String,
@@ -51,6 +52,8 @@ const userSchema=new Schema({
 {timestamps:true}
 )
 
+
+//  bcrypt is use for hash algorithm yo secure our password or encrypt it
 userSchema.pre("save",async function (next){
     if(this.isModified("password")) return next();
     this.password=bcrypt.hash(this.password,10)
@@ -72,6 +75,8 @@ userSchema.methods.generateAccessToken=function(){
 }
 )
 }
+
+//both the token method are same for calling but both token expiry are diff
 
 userSchema.methods.generateRefreshToken=function(){
     return jwt.sign({

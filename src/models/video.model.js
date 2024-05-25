@@ -1,5 +1,7 @@
 import mongoose,{Schema} from "mongoose";
 import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2";
+
+//  aggregate pipeline for video stream
 const videSchema=new Schema({
     videoFile:{
         type:String,
