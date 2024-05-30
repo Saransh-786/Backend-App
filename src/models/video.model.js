@@ -37,6 +37,8 @@ const videSchema=new Schema({
     }
 },{timestamps:true})
 
+
+// video pipeline schema calling
 videoSchema.plugin(mongooseAggregatePaginate)
 
 
